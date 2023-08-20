@@ -1,15 +1,11 @@
 #pragma once
-#define _CRT_SECURE_NO_WARNINGS
-
-#include<iostream>
-#include<ctime>
+#include<string>
+#include<time.h>
 #include"User.h"
 
 class Message
 {
 public:
-    time_t now;
-
     Message();
 
     explicit Message(const std::string& text, User* sender, User* recipient);
@@ -33,6 +29,8 @@ public:
     const std::string& getRecipient() const;
 
     const std::string& getSendinDateTime() const;
+    
+    const std::string& setCorrectTime( std::string& str_time);
 
     friend std::ostream& operator<<(std::ostream& os, const Message& m);
 
@@ -42,9 +40,7 @@ private:
     std::string _sender;
     std::string _recipient;
     std::string _sendinDateTime;
+   
 };
-
-
-
 
 
